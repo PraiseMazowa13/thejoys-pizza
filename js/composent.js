@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <header>
                 <img src="../img/logo.jpg" alt="The Joy's Pizza" style="height: 60px; width: 60px; border-radius: 60px; object-fit: cover;">
                 <nav class="links">
-                    <a href="index.html">Accueil</a>
+                    <a href="main.html">Accueil</a>
                     <a href="catalogue.html">Menu</a>
                     <a href="panier.html" style="position: relative;">
                         Panier 

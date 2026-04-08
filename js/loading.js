@@ -57,7 +57,7 @@
                         document.head.appendChild(style);
                         
                         setTimeout(() => {
-                         window.location.href="index.html"
+                         window.location.href="main.html"
                         }, 1000);
                     }, 800);
                     
