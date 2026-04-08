@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Joy's Pizza - Avis clients</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/avis.css">
+    <link rel="stylesheet" href="../css/panier.css">
+    <!-- Font Awesome pour les étoiles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+ 
+</head>
+<body>
+    <!-- HEADER -->
+    <div id="header"></div>
+    <script src="../js/composent.js"></script>
+    <!-- TITRE -->
+    <div class="page-title">
+        <h1>📝 Avis clients</h1>
+        <p>Quel est votre avis ?</p>
+    </div>
+
+    <!-- STATISTIQUES -->
+    <div class="stats" id="stats">
+        <div class="average-rating" id="avgRating">0.0</div>
+        <div class="stars-display" id="avgStars">
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+        </div>
+        <div class="total-reviews" id="totalReviews">0 avis</div>
+    </div>
+
+    <!-- LISTE DES AVIS -->
+    <div class="reviews-container" id="reviewsList">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>Chargement ya ba avis...</p>
+        </div>
+    </div>
+
+    <!-- FORMULAIRE D'AJOUT -->
+    <div class="form-container">
+        <h3 class="form-title">votre opinion</h3>
+        
+        <div class="rating-select">
+            <p>Note na yo :</p>
+            <div class="stars-input" id="starInput">
+                <i class="far fa-star" data-rating="1"></i>
+                <i class="far fa-star" data-rating="2"></i>
+                <i class="far fa-star" data-rating="3"></i>
+                <i class="far fa-star" data-rating="4"></i>
+                <i class="far fa-star" data-rating="5"></i>
+            </div>
+            <div class="selected-rating" id="selectedRating"></div>
+        </div>
+
+        <div class="form-group">
+            <input type="text" id="nom" placeholder="Nkombo na yo" required>
+        </div>
+
+        <div class="form-group">
+            <textarea id="commentaire" placeholder="Lobela biso ndenge ozwi..." required></textarea>
+        </div>
+
+        <button class="submit-btn" onclick="ajouterAvis()">
+            <i class="fas fa-paper-plane"></i> envoyer 
+        </button>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>The Joy's Pizza - Makoki manso ezali ya biso © 2024</p>
+        <div>
+            <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+            <a href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+        </div>
+    </footer>
+<script src="../js/avis.js"></script>
+
+</body>
+</html>

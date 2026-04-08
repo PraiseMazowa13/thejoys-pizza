@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Joy's Pizza</title>
+  <link rel="stylesheet" href="4style.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="logo">
+            <img src="C:\Users\adm\Desktop\thejoys pizza\img\logo.jpg" alt="The Joy's Pizza">
+        </div>
+        <div class="links">
+            <a onclick="showSection('home')" class="active" id="nav-home">Accueil</a>
+            <a onclick="showSection('menu')" id="nav-menu">Menu</a>
+            <a onclick="showSection('cart')" id="nav-cart">Panier (<span id="cart-count">0</span>)</a>
+        </div>
+    </header>
+
+    <!-- SECTION ACCUEIL -->
+    <div id="home-section">
+        <!-- HERO -->
+        <div class="hero">
+            <div class="hero-overlay">
+                <p>The Joy's Pizza, là où chaque bouchée redonne le sourire</p>
+                <p style="font-size: 18px;">Nous vous livrons où vous êtes !</p>
+                <button class="btn" onclick="showSection('menu')">Visitez notre menu</button>
+            </div>
+        </div>
+
+        <!-- INTRODUCTION -->
+        <h2>Essayez un de nos plats</h2>
+        <p style="padding: 15px; max-width: 800px; margin: 0 auto;">
+            Chez The Joy's Pizza, nous préparons chaque pizza avec des ingrédients frais et beaucoup d'amour. Découvrez nos spécialités !
+        </p>
+
+        <!-- PRODUITS À LA UNE -->
+        <div class="products-container" id="featured-products"></div>
+        
+        <button class="btn" onclick="showSection('menu')">Voir les autres plats</button>
+
+        <!-- HORAIRES -->
+        <div class="hours">
+            <h3>Nos horaires</h3>
+            <p>Lundi - Samedi : 12h30 - 19h30</p>
+            <p>Dimanche : 12h30 - 17h30</p>
+        </div>
+    </div>
+
+    <!-- SECTION MENU -->
+    <div id="menu-section" style="display: none;">
+        <h2>Notre Menu</h2>
+        <div class="products-container" id="full-menu"></div>
+        <button class="btn" onclick="showSection('home')">Retour à l'accueil</button>
+    </div>
+
+    <!-- SECTION PANIER -->
+    <div id="cart-section" class="cart-section">
+        <h2>Votre Panier</h2>
+        <div class="cart-container">
+            <div class="cart-items" id="cart-items">
+                <p>Votre panier est vide</p>
+            </div>
+            <div class="cart-summary" id="cart-summary" style="display: none;">
+                <h3>Récapitulatif</h3>
+                <div class="summary-line">
+                    <span>Sous-total</span>
+                    <span id="subtotal">0.00 €</span>
+                </div>
+                <div class="summary-line">
+                    <span>Livraison</span>
+                    <span>2.50 €</span>
+                </div>
+                <div class="summary-line total">
+                    <span>Total</span>
+                    <span id="total">2.50 €</span>
+                </div>
+                <button class="btn" onclick="commander()" style="width: 100%;">Commander</button>
+                <a onclick="showSection('menu')" style="display: block; margin-top: 10px; color: #770808; cursor: pointer;">← Continuer mes achats</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>The Joy's Pizza - Tous droits réservés</p>
+        <div>
+            <a href="#">Facebook</a>
+            <a href="#">Whatsapp</a>
+            <a href="#">Instagram</a>
+        </div>
+    </footer>
+
+    <script>
+        // ===== PRODUITS AVEC MES PHOTOS =====
+        const produits = [
+            { 
+                id: 1, 
+                nom: "Margherita", 
+                prix: 10.90, 
+                image: "https://images.unsplash.com/photo-1604068549290-dea0e4a305ca?w=200&h=200&fit=crop",
+                desc: "Sauce tomate, mozzarella, basilic"
+            },
+            { 
+                id: 2, 
+                nom: "Pepperoni", 
+                prix: 12.90, 
+                image: "https://images.unsplash.com/photo-1628840042765-356cda07504e?w=200&h=200&fit=crop",
+                desc: "Sauce tomate, mozzarella, pepperoni"
+            },
+            { 
+                id: 3, 
+                nom: "Quatre Fromages", 
+                prix: 13.90, 
+                image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200&h=200&fit=crop",
+                desc: "Mozzarella, chèvre, gorgonzola, parmesan"
+            },
+            { 
+                id: 4, 
+                nom: "Végétarienne", 
+                prix: 11.90, 
+                image: "https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?w=200&h=200&fit=crop",
+                desc: "Légumes frais, sauce tomate, mozzarella"
+            },
+            { 
+                id: 5, 
+                nom: "Chawarma", 
+                prix: 12.90, 
+                image: "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=200&h=200&fit=crop",
+                desc: "Viande chawarma, sauce blanche, légumes"
+            },
+            { 
+                id: 6, 
+                nom: "Kebab", 
+                prix: 10.90, 
+                image: "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=200&h=200&fit=crop",
+                desc: "Viande kebab, sauce, frites"
+            },
+            { 
+                id: 7, 
+                nom: "Tacos", 
+                prix: 11.90, 
+                image: "https://images.unsplash.com/photo-1599974579688-8dbdd335c77f?w=200&h=200&fit=crop",
+                desc: "Galet, viande, sauce, frites"
+            },
+            { 
+                id: 8, 
+                nom: "Frites", 
+                prix: 4.90, 
+                image: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=200&h=200&fit=crop",
+                desc: "Frites fraîches maison"
+            }
+        ];
+
+        let panier = [];
+
+        // ===== AFFICHAGE =====
+        window.onload = function() {
+            afficherProduits();
+        };
+
+        function afficherProduits() {
+            const featured = document.getElementById('featured-products');
+            const fullMenu = document.getElementById('full-menu');
+            
+            featured.innerHTML = '';
+            fullMenu.innerHTML = '';
+
+            // 4 premiers en vedette
+            produits.slice(0, 4).forEach(p => {
+                featured.appendChild(creerCarte(p));
+            });
+
+            // Tous dans le menu
+            produits.forEach(p => {
+                fullMenu.appendChild(creerCarte(p));
+            });
+        }
+
+        function creerCarte(produit) {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            card.innerHTML = `
+                <img src="${produit.image}" alt="${produit.nom}" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200&h=200&fit=crop'">
+                <span>${produit.nom}</span>
+                <span class="price">${produit.prix.toFixed(2)} €</span>
+                <button onclick="ajouterAuPanier(${produit.id})">Ajouter au panier</button>
+            `;
+            return card;
+        }
+
+        // ===== NAVIGATION =====
+        function showSection(section) {
+            document.getElementById('home-section').style.display = 'none';
+            document.getElementById('menu-section').style.display = 'none';
+            document.getElementById('cart-section').classList.remove('visible');
+            
+            document.getElementById('nav-home').classList.remove('active');
+            document.getElementById('nav-menu').classList.remove('active');
+            document.getElementById('nav-cart').classList.remove('active');
+            
+            if (section === 'home') {
+                document.getElementById('home-section').style.display = 'block';
+                document.getElementById('nav-home').classList.add('active');
+            } else if (section === 'menu') {
+                document.getElementById('menu-section').style.display = 'block';
+                document.getElementById('nav-menu').classList.add('active');
+            } else if (section === 'cart') {
+                document.getElementById('cart-section').classList.add('visible');
+                document.getElementById('nav-cart').classList.add('active');
+            }
+        }
+
+        // ===== PANIER =====
+        function ajouterAuPanier(id) {
+            const produit = produits.find(p => p.id === id);
+            const existant = panier.find(p => p.id === id);
+            
+            if (existant) {
+                existant.quantite++;
+                afficherMessage(`+1 ${produit.nom}`);
+            } else {
+                panier.push({...produit, quantite: 1});
+                afficherMessage(`${produit.nom} ajouté au panier`);
+            }
+            
+            mettreAJourPanier();
+        }
+
+        function modifierQuantite(id, changement) {
+            const item = panier.find(p => p.id === id);
+            if (!item) return;
+            
+            if (changement > 0) {
+                item.quantite++;
+            } else {
+                if (item.quantite > 1) {
+                    item.quantite--;
+                } else {
+                    supprimerProduit(id);
+                    return;
+                }
+            }
+            mettreAJourPanier();
+        }
+
+        function supprimerProduit(id) {
+            panier = panier.filter(p => p.id !== id);
+            afficherMessage('Produit retiré du panier');
+            mettreAJourPanier();
+        }
+
+        function mettreAJourPanier() {
+            const cartItems = document.getElementById('cart-items');
+            const cartSummary = document.getElementById('cart-summary');
+            const cartCount = document.getElementById('cart-count');
+            
+            const totalItems = panier.reduce((sum, item) => sum + item.quantite, 0);
+            cartCount.textContent = totalItems;
+            
+            if (panier.length === 0) {
+                cartItems.innerHTML = '<p>Votre panier est vide</p>';
+                cartSummary.style.display = 'none';
+                return;
+            }
+            
+            cartSummary.style.display = 'block';
+            cartItems.innerHTML = '';
+            
+            let sousTotal = 0;
+            panier.forEach(item => {
+                sousTotal += item.prix * item.quantite;
+                
+                const div = document.createElement('div');
+                div.className = 'cart-item';
+                div.innerHTML = `2
+                    <img src="${item.image}" alt="${item.nom}">
+                    <div class="item-details">
+                        <h4>${item.nom}</h4>
+                        <div>${item.prix.toFixed(2)} €</div>
+                        <div class="item-quantity">
+                            <button class="qty-btn" onclick="modifierQuantite(${item.id}, -1)">-</button>
+                            <span>${item.quantite}</span>
+                            <button class="qty-btn" onclick="modifierQuantite(${item.id}, 1)">+</button>
+                        </div>
+                    </div>
+                    <button class="remove-btn" onclick="supprimerProduit(${item.id})">🗑️</button>
+                `;
+                cartItems.appendChild(div);
+            });
+            
+            document.getElementById('subtotal').textContent = sousTotal.toFixed(2) + ' €';
+            document.getElementById('total').textContent = (sousTotal + 2.50).toFixed(2) + ' €';
+        }
+
+        function afficherMessage(texte) {
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.textContent = texte;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 2000);
+        }
+
+        function commander() {
+            if (panier.length === 0) {
+                afficherMessage('Votre panier est vide');
+                return;
+            }
+            afficherMessage('Merci pour votre commande !');
+            panier = [];
+            mettreAJourPanier();
+            showSection('home');
+        }
+    </script>
+</body>
+</html>

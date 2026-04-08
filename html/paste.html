@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/panier.css">
+    <script src="../js/composent.js"></script>
+    <title>The Joy's Pizza</title>
+</head>
+<body onload="displayProducts('menu-container');">
+    <!-- generation dynamique du header -->
+    <div id="header"></div>
+    
+    <section>
+        <div class="alpha">
+            <p style="font-size: 40px;">The Joy's Pizza</p> 
+            <p>Là où chaque bouchée redonne le sourire. Des pizzas artisanales préparées avec des ingrédients frais et beaucoup d'amour.</p>
+            <a class="btn" href="catalogue.html">visitez notre menu</a>
+        </div>
+    </section>
+
+    <!-- SECTION SUGGESTIONS -->
+    <div class="section-title">
+        <h2>Nos suggestions</h2>  
+    </div>
+
+    <div class="contenaire" id="menu-container">
+        <!-- dynamique -->
+    </div>
+
+    <!-- BOUTONS D'ACTION -->
+    <div style="text-align: center;">
+        <a class="btn" href="catalogue.html">voir tout le menu</a>
+    </div>
+
+    <!-- SECTION AVANTAGES (avec classes existantes) -->
+    <div class="section-title" >
+        <h3>Pourquoi nous choisir ?</h3>
+        <a href="avis.html" class="continue-shopping">⭐ Voir tous les avis clients →</a>
+
+    </div>
+    
+
+    <!-- SECTION À PROPOS -->
+    <div style="background-color: white; padding: 40px 20px; margin: 30px 0;">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <h3 style="color: #770808; font-size: 28px; margin-bottom: 20px; font-family: 'Playfair Display', serif;">Qui sommes-nous ?</h3>
+            <p style="color: #641616; line-height: 1.8; font-family: Georgia, 'Times New Roman', serif;">
+                Depuis 2020, The Joy's Pizza apporte un sourire à Kinshasa. 
+                Notre secret ? Des recettes transmises de génération en génération, 
+                une pâte faite maison et des ingrédients soigneusement sélectionnés 
+                pour vous offrir la meilleure expérience culinaire.
+            </p>
+        </div>
+    </div>
+
+    <!-- SECTION HORAIRES (améliorée) -->
+    <div class="section-title">
+        <h3>Nos horaires</h3>
+    </div>
+
+    <div style="display: flex; justify-content: center; margin: 20px 0 40px;">
+        <div style="background-color: white; padding: 25px; border-radius: 10px; max-width: 400px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+            <div style="margin: 15px 0; color: #641616;">
+                <span style="font-weight: bold; color: #770808;">Lundi - Samedi :</span> 12h30 - 19h30
+            </div>
+            <div style="margin: 15px 0; color: #641616;">
+                <span style="font-weight: bold; color: #770808;">Dimanche :</span> 12h30 - 17h30
+            </div>
+            <p style="color: #770808; margin-top: 15px; font-style: italic; font-weight: bold;">
+                ⏰ Commandez en ligne 24h/24
+            </p>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div id="footer">
+        <script src="../js/composent.js"></script>
+    </div>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

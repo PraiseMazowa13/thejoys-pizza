@@ -1,0 +1,16 @@
+[
+    { id: 1, name: 'Chawarma', price: 5000, img: '../img/chaw.jpg' },
+    { id: 2, name: 'Chawarma Royal', price: 6500, img: '../img/chawarma.jpg' },
+    { id: 3, name: 'Frites Poulet', price: 7000, img: '../img/fritte.jpg' },
+    { id: 4, name: 'Makemba', price: 3000, img: '../img/frittepoulet.jpg' },
+    { id: 5, name: 'Pizza Margherita', price: 12000, img: '../img/chawarma.jpg' },
+    { id: 6, name: 'Pizza 4 Fromages', price: 15000, img: '../img/pizz(1).jpg' },
+    { id: 7, name: 'Pizza Pepperoni', price: 13500, img: '../img/pizz(1).jpg' },
+    { id: 8, name: 'Poulet Kwango', price: 8500, img: '../img/pizz(1).jpg' },
+    { id: 9, name: 'Poulet Makemba', price: 9000, img: '../img/pizz(1).jpg' },
+    { id: 10, name: 'Samoussas', price: 2500, img: '../img/pizz(1).jpg' },
+    { id: 11, name: 'Samoussas Boeuf', price: 3000, img: '../img/pizz(1).jpg' },
+    { id: 12, name: 'Samoussas Poulet', price: 3000, img: '../img/pizz(1).jpg' },
+    { id: 13, name: 'Samoussas', price: 3000, img: '../img/pizz (3).jpg' },
+    { id: 14, name: 'Samoussas Poulet', price: 3000, img: '../img/pizz(1).jpg' }
+]

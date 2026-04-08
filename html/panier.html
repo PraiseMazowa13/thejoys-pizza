@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votre Panier - The Joy's Pizza</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/panier.css">
+</head>
+<body>
+    <!-- Header -->
+    <div id="header"></div>
+
+    <!-- Loading Page -->
+    <div class="loading-page" id="loadingPage">
+        <div class="loader"></div>
+        <p>Chargement de votre panier...</p>
+    </div>
+
+    <!-- Section Panier -->
+    <main class="cart-main" id="cart-section" style="display: none;">
+        <h1>Votre Panier</h1>
+        
+        <div class="cart-container">
+            <!-- Liste des articles -->
+            <div class="cart-items" id="cart-items">
+                <!-- Rempli dynamiquement par JavaScript -->
+                <div class="empty-cart">
+                    <p>Votre panier est vide</p>
+                    <a href="catalogue.html" class="continue-shopping">← Découvrir nos produits</a>
+                </div>
+            </div>
+            
+            <!-- Résumé de la commande -->
+            <div class="cart-summary" id="cart-summary" style="display: none;">
+                <h3>Récapitulatif</h3>
+                <div class="summary-line">
+                    <span>Sous-total</span>
+                    <span id="subtotal">0 FC</span>
+                </div>
+                <div class="summary-line">
+                    <span>Livraison</span>
+                    <span>2 500 FC</span>
+                </div>
+                <div class="summary-line total">
+                    <span>Total</span>
+                    <span id="total">2 500 FC</span>
+                </div>
+                <button class="checkout-btn" onclick="commander()">Passer la commande</button>
+                <a href="catalogue.html" class="continue-shopping">← Continuer mes achats</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <!-- Scripts -->
+    <script src="../js/composent.js"></script>
+    <script src="../js/main.js"></script>
+
+</body>
+</html>
+
