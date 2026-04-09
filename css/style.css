@@ -33,7 +33,8 @@ header {
 
 .links {
     display: flex;
-    gap: 10px;
+    gap: 8px;
+
 }
 
 .links a {
@@ -44,9 +45,9 @@ header {
 }
 
 header img {
-    height: 60px;
-    width: 60px;
-    border-radius: 60px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
     object-fit: cover;
 }
 
@@ -86,40 +87,49 @@ section button {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
+    gap: 20px;
 }
 
 .img {
     background-color: rgb(240, 238, 234);
     display: flex;
     flex-direction: column;
-    align-items: justify;
+    align-items: center;
     border: 1px solid #ddd;
     padding: 5px;
     border-radius: 10px;
     color: #770808;
     font-weight: bolder;
+    width: 100px; 
+   
 }
 
 .img img {
     height: 90px;
-    width: 90px;
+    width: 100px;
     object-fit: cover;
     border-radius: 12px;
 }
 
 .img span {
+    display: block;           /* ESSENTIEL : permet le retour à la ligne */
     padding: 3px;
-    font-size: 10px;
+    font-size: 13px;
+    hyphens: auto;
+    overflow-wrap: break-word;
+    word-break: normal;       /* coupe uniquement aux espaces */
+    max-width: 100%;
 }
+
+
 
 .img button {
     width: 100%;
-    height: 20px;
+    height: 22px;
     border-radius: 5px;
     padding: 5px,5px,5px,5px;
     text-align: center;
-    font-size: 11px;
+    font-size: 12px;
     color: #fff;
     background-color: rgba(139, 6, 6, 0.904);
     font-family: 'Times New Roman', Times, serif;
@@ -257,5 +267,155 @@ footer {
     100% {
         opacity: 0;
         transform: scale(40, 40);
+    }
+}
+
+
+/* modale */
+/* ===== MODAL PRODUIT ===== */
+.product-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 10002;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: rgb(236, 240, 239);
+    max-width: 500px;
+    width: 90%;
+    border-radius: 20px;
+    overflow: hidden;
+    animation: modalZoomIn 0.3s ease;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes modalZoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modal-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.modal-body {
+    padding: 20px;
+    text-align: left;
+}
+
+.modal-body h2 {
+    color: #770808;
+    margin: 0 0 10px 0;
+    font-size: 24px;
+}
+
+.modal-category {
+    display: inline-block;
+    background-color: #77080820;
+    color: #770808;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.modal-price {
+    font-size: 28px;
+    font-weight: bold;
+    color: #770808;
+    margin: 15px 0;
+}
+
+.modal-description {
+    color: #444;
+    line-height: 1.6;
+    margin: 15px 0;
+    font-size: 14px;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.modal-actions button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.modal-add-btn {
+    background-color: #770808;
+    color: white;
+}
+
+.modal-add-btn:hover {
+    background-color: #a30808;
+    transform: translateY(-2px);
+}
+
+.modal-close-btn {
+    background-color: #ddd;
+    color: #333;
+}
+
+.modal-close-btn:hover {
+    background-color: #bbb;
+    transform: translateY(-2px);
+}
+
+.close-top {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+    background: rgba(0,0,0,0.5);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    z-index: 10003;
+}
+
+.close-top:hover {
+    background: #770808;
+    transform: scale(1.1);
+}
+
+@media (max-width: 600px) {
+    .modal-actions {
+        flex-direction: column;
+    }
+    .modal-img {
+        height: 200px;
     }
 }

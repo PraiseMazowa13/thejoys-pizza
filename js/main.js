@@ -1,20 +1,18 @@
 // ---- Données des produits ----
+
 const products = [
-    { id: 1, name: 'Chawarma', price: 5000, img: '../img/chaw.jpg' },
-    { id: 2, name: 'Chawarma Royal', price: 6500, img: '../img/chawarma.jpg' },
-    { id: 3, name: 'Frites Poulet', price: 7000, img: '../img/fritte.jpg' },
-    { id: 4, name: 'Makemba', price: 3000, img: '../img/frittepoulet.jpg' },
-    { id: 5, name: 'Pizza Margherita', price: 12000, img: '../img/chawarma.jpg' },
-    { id: 6, name: 'Pizza 4 Fromages', price: 15000, img: '../img/pizz(1).jpg' },
-    { id: 7, name: 'Pizza Pepperoni', price: 13500, img: '../img/pizz(1).jpg' },
-    { id: 8, name: 'Poulet Kwango', price: 8500, img: '../img/pizz(1).jpg' },
-    { id: 9, name: 'Poulet Makemba', price: 9000, img: '../img/pizz(1).jpg' },
-    { id: 10, name: 'Samoussas', price: 2500, img: '../img/pizz(1).jpg' },
-    { id: 11, name: 'Samoussas Boeuf', price: 3000, img: '../img/pizz(1).jpg' },
-    { id: 12, name: 'Samoussas Poulet', price: 3000, img: '../img/pizz(1).jpg' },
-    { id: 13, name: 'Samoussas', price: 3000, img: '../img/pizz (3).jpg' },
-    { id: 13, name: 'Samoussas', price: 3000, img: '../img/fritte.jpg' },
-    { id: 14, name: 'Samoussas Poulet', price: 3000, img: '../img/pizz(1).jpg' }
+    { id: 1, name: 'Chawarma poulet', price: 6000, img: 'img/chaw.jpg', description: 'Délicieux chawarma au poulet frit.', category: 'Chawarma' },
+    { id: 2, name: 'Chawarma viande', price: 8000, img: 'img/chawarma.jpg', description: 'Chawarma à la viande tendre, épices maison .', category: 'Chawarma' },
+    { id: 3, name: 'Frites mayo', price: 4000, img: 'img/fritte.jpg', description: 'Frites croustillantes maison, servies avec mayonnaise.', category: 'Frites' },
+    { id: 4, name: 'cuisse fritte', price: 7000, img: 'img/frittepoulet.jpg', description: 'Cuisse de poulet grillée + frites maison.', category: 'Poulet' },
+    { id: 5, name: 'makemba+mayo', price: 4500, img: 'img/makemba.jpg', description: 'Makemba (plantain frit) accompagné de mayonnaise et de ketchup.', category: 'Plantain' },
+    { id: 6, name: 'Pizza viande', price: 23000, img: 'img/p_alaviande.jpg', description: 'Pizza garnie de viande hachée, fromage, poivrons et olives.', category: 'Pizza' },
+    { id: 7, name: 'Pizza saucissons', price: 15000, img: 'img/p_saucissons.jpg', description: 'Pizza aux saucissons italiens, mozzarella et sauce tomate.', category: 'Pizza' },
+    { id: 8, name: 'Pizza poulet', price: 18500, img: 'img/p_poulet.jpg', description: 'Pizza au poulet mariné, champignons et fromage.', category: 'Pizza' },
+    { id: 9, name: 'cuisse Makemba', price: 7500, img: 'img/pouletmakemba.jpg', description: 'Cuisse de poulet + makemba (plantain frit).', category: 'Poulet' },
+    { id: 10, name: 'cuisse chikwangue', price: 6000, img: 'img/pouletkwanga.jpg', description: '2 cuisses de poulet + chikwangue (manioc).', category: 'Poulet' },
+    { id: 11, name: 'Samoussas Poulet', price: 5500, img: 'img/samoussa_poulet.jpg', description: '8 samoussas au poulet, croustillants et épicés.', category: 'Samoussas' },
+    { id: 12, name: 'Samoussas viande ', price: 6000, img: 'img/samoussa_viande.jpg', description: '8 samoussas à la viande hachée.', category: 'Samoussas' },
 ];
 
 // ===== GESTION DU PANIER (LOCALSTORAGE) =====
@@ -242,6 +240,46 @@ function commander() {
 }
 
 // ===== FONCTION D'AFFICHAGE DES PRODUITS =====
+// function displayProducts(contenairId) {
+//     try {
+//         const container = document.getElementById(contenairId);
+//         if (!container) return;
+        
+//         container.innerHTML = '';
+
+//         if(contenairId === 'menu-catalogue') {
+//             products.forEach(product => {
+//                 const productDiv = document.createElement('div');
+//                 productDiv.className = 'img';
+//                 productDiv.innerHTML = `
+//                     <img src="${product.img}" alt="${product.name}">
+//                     <span class="product-name">${product.name}</span>
+//                     <span class="product-price">${product.price.toLocaleString()} FC</span>
+//                     <button class="add-to-cart" data-id="${product.id}">Ajouter au panier</button>
+//                 `;
+//                 container.appendChild(productDiv);
+//             });
+//         }
+//         else if(contenairId === 'menu-container') {
+//             const shuffled = [...products].sort(() => 0.5 - Math.random());
+//             const selectedProducts = shuffled.slice(0, 3);
+            
+//             selectedProducts.forEach(product => {
+//                 const productDiv = document.createElement('div');
+//                 productDiv.className = 'img';
+//                 productDiv.innerHTML = `
+//                     <img src="${product.img}" alt="${product.name}">
+//                     <span class="product-name">${product.name}</span>
+//                     <span class="product-price">${product.price.toLocaleString()} FC</span>
+//                     <button class="add-to-cart" data-id="${product.id}">Ajouter au panier</button>
+//                 `;
+//                 container.appendChild(productDiv);
+//             });
+//         }
+//     } catch (error) {
+//         console.error('Erreur displayProducts:', error);
+//     }
+// }
 function displayProducts(contenairId) {
     try {
         const container = document.getElementById(contenairId);
@@ -254,8 +292,8 @@ function displayProducts(contenairId) {
                 const productDiv = document.createElement('div');
                 productDiv.className = 'img';
                 productDiv.innerHTML = `
-                    <img src="${product.img}" alt="${product.name}">
-                    <span class="product-name">${product.name}</span>
+                    <img src="${product.img}" alt="${product.name}" onclick="ouvrirModalProduit(${product.id})" style="cursor: pointer;">
+                    <span class="product-name" onclick="ouvrirModalProduit(${product.id})" style="cursor: pointer;">${product.name}</span>
                     <span class="product-price">${product.price.toLocaleString()} FC</span>
                     <button class="add-to-cart" data-id="${product.id}">Ajouter au panier</button>
                 `;
@@ -270,8 +308,8 @@ function displayProducts(contenairId) {
                 const productDiv = document.createElement('div');
                 productDiv.className = 'img';
                 productDiv.innerHTML = `
-                    <img src="${product.img}" alt="${product.name}">
-                    <span class="product-name">${product.name}</span>
+                    <img src="${product.img}" alt="${product.name}" onclick="ouvrirModalProduit(${product.id})" style="cursor: pointer;">
+                    <span class="product-name" onclick="ouvrirModalProduit(${product.id})" style="cursor: pointer;">${product.name}</span>
                     <span class="product-price">${product.price.toLocaleString()} FC</span>
                     <button class="add-to-cart" data-id="${product.id}">Ajouter au panier</button>
                 `;
@@ -282,6 +320,62 @@ function displayProducts(contenairId) {
         console.error('Erreur displayProducts:', error);
     }
 }
+// ===== MODAL PRODUIT =====
+let currentProduct = null;
+
+function ouvrirModalProduit(productId) {
+    const product = products.find(p => p.id === productId);
+    if (!product) return;
+    
+    currentProduct = product;
+    
+    // Créer ou récupérer le modal
+    let modal = document.getElementById('product-modal');
+    
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'product-modal';
+        modal.className = 'product-modal';
+        document.body.appendChild(modal);
+    }
+    
+    // Remplir le modal
+    modal.innerHTML = `
+        <div class="close-top" onclick="fermerModalProduit()">&times;</div>
+        <div class="modal-content">
+            <img src="${product.img}" alt="${product.name}" class="modal-img">
+            <div class="modal-body">
+                <span class="modal-category">${product.category || 'Spécialité'}</span>
+                <h2>${product.name}</h2>
+                <div class="modal-price">${product.price.toLocaleString()} FC</div>
+                <div class="modal-description">${product.description || 'Découvrez notre spécialité maison, préparée avec des ingrédients frais et beaucoup d\'amour.'}</div>
+                <div class="modal-actions">
+                    <button class="modal-close-btn" onclick="fermerModalProduit()">Fermer</button>
+                    <button class="modal-add-btn" onclick="ajouterDepuisModal()">🛒 Ajouter au panier</button>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    modal.style.display = 'flex';
+}
+
+function fermerModalProduit() {
+    const modal = document.getElementById('product-modal');
+    if (modal) {
+        modal.style.display = 'none';
+    }
+    currentProduct = null;
+}
+
+function ajouterDepuisModal() {
+    if (currentProduct) {
+        addToCart(currentProduct.id);
+        fermerModalProduit();
+    }
+}
+
+
 
 // ===== INITIALISATION =====
 document.addEventListener('DOMContentLoaded', function() {
@@ -377,21 +471,6 @@ function afficherFormulaireLivraison() {
                     <textarea id="adresse" name="adresse" required placeholder="Commune, Quartier, Avenue, Numéro" rows="3"></textarea>
                 </div>
                 
-                <div class="groupe-champ">
-                    <label for="heure">Heure de livraison souhaitée</label>
-                    <select id="heure" name="heure">
-                        <option value="Des que possible">Dès que possible</option>
-                        <option value="Dans 1 heure">Dans 1 heure</option>
-                        <option value="Dans 1h30">Dans 1 heure 30</option>
-                        <option value="Dans 2 heures">Dans 2 heures</option>
-                    </select>
-                </div>
-                
-                <div class="groupe-champ">
-                    <label for="instructions">Instructions supplémentaires</label>
-                    <textarea id="instructions" name="instructions" placeholder="Ex: Sonner à l'interphone, préciser le code..." rows="2"></textarea>
-                </div>
-                
                 <h3>Récapitulatif de votre commande</h3>
                 <div class="resume-commande-modal">
                     ${articlesHTML}
@@ -444,9 +523,7 @@ function envoyerCommandeWhatsApp() {
     const nom = document.getElementById('nom').value.trim();
     // const telephone = document.getElementById('telephone').value.trim();
     const adresse = document.getElementById('adresse').value.trim();
-    const heure = document.getElementById('heure').value;
-    const instructions = document.getElementById('instructions').value.trim();
-    
+   
     // Valider les champs requis add !telephone ||
     if (!nom ||!adresse) {
         afficherNotification('Veuillez remplir tous les champs obligatoires', 'info');
@@ -457,11 +534,7 @@ function envoyerCommandeWhatsApp() {
     let message = "🛵 *NOUVELLE COMMANDE THE JOY'S PIZZA* 🍕\n\n";
     message += `👤 *Client :* ${nom}\n`;
     message += `📍 *Adresse :* ${adresse}\n`;
-    message += `⏰ *Livraison :* ${heure}\n`;
-    
-    if (instructions) {
-        message += `📝 *Instructions :* ${instructions}\n`;
-    }
+
     
     message += `\n🍽️ *ARTICLES COMMANDÉS :*\n`;
     message += `─────────────────\n`;
@@ -511,6 +584,12 @@ function envoyerCommandeWhatsApp() {
         afficherNotification('🎉 Commande envoyée ! Vous allez être redirigé vers WhatsApp', 'success');
     }, 1000);
 }
+
+
+// Rendre disponibles globalement
+window.ouvrirModalProduit = ouvrirModalProduit;
+window.fermerModalProduit = fermerModalProduit;
+window.ajouterDepuisModal = ajouterDepuisModal;
 
 // Rendre les fonctions disponibles globalement
 window.fermerModalCommande = fermerModalCommande;

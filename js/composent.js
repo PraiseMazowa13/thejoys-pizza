@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (header) {
         header.innerHTML = `
             <header>
-                <img src="../img/logo.jpg" alt="The Joy's Pizza" style="height: 60px; width: 60px; border-radius: 60px; object-fit: cover;">
+                <img src="img/logo.jpg" alt="The Joy's Pizza" style="height: 60px; width: 60px; border-radius: 60px; object-fit: cover;">
                 <nav class="links">
                     <a href="main.html">Accueil</a>
                     <a href="catalogue.html">Menu</a>
