@@ -288,7 +288,7 @@ function displayProducts(contenairId) {
         container.innerHTML = '';
 
         if(contenairId === 'menu-catalogue') {
-            alert('catalogue');
+            
             products.forEach(product => {
                 const productDiv = document.createElement('div');
                 productDiv.className = 'img';
